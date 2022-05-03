@@ -122,9 +122,7 @@ public class PasspointManager {
     private final PasspointProvisioner mPasspointProvisioner;
     private final AppOpsManager mAppOps;
     private final WifiCarrierInfoManager mWifiCarrierInfoManager;
-    private final MacAddressUtil mMacAddressUtil;
     private final WifiPermissionsUtil mWifiPermissionsUtil;
-
     /**
      * Map of package name of an app to the app ops changed listener for the app.
      */
@@ -311,7 +309,6 @@ public class PasspointManager {
             WifiConfigStore wifiConfigStore,
             WifiMetrics wifiMetrics,
             WifiCarrierInfoManager wifiCarrierInfoManager,
-            MacAddressUtil macAddressUtil,
             WifiPermissionsUtil wifiPermissionsUtil) {
         mPasspointEventHandler = objectFactory.makePasspointEventHandler(wifiNative,
                 new CallbackHandler(context));
@@ -334,7 +331,6 @@ public class PasspointManager {
                 this, wifiMetrics);
         mAppOps = (AppOpsManager) context.getSystemService(Context.APP_OPS_SERVICE);
         sPasspointManager = this;
-        mMacAddressUtil = macAddressUtil;
         mWifiPermissionsUtil = wifiPermissionsUtil;
     }
 

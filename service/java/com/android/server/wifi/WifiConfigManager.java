@@ -2901,8 +2901,7 @@ public class WifiConfigManager {
         // Remove any private networks of the old user before switching the userId.
         for (WifiConfiguration config : getConfiguredNetworks()) {
             if ((!config.shared && !mWifiPermissionsUtil
-                    .doesUidBelongToCurrentUser(config.creatorUid))
-                    || config.ephemeral) {
+                    .doesUidBelongToCurrentUser(config.creatorUid))) {
                 removedNetworkIds.add(config.networkId);
                 localLog("clearInternalUserData: removed config."
                         + " netId=" + config.networkId
